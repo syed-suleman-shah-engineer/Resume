@@ -1,458 +1,601 @@
 <!doctype html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Syed Suleman Shah — Unity 3D Developer & Instructor</title>
-    <meta name="description"
-        content="Syed Suleman Shah — Unity 3D Developer, Backend C# Programmer, Instructor, specializing in multiplayer, VR, tactical simulations, and WebGL." />
+    <meta
+      name="description"
+      content="Syed Suleman Shah — Unity 3D Developer, Backend C# Programmer, Instructor, specializing in multiplayer, VR, tactical simulations, and WebGL."
+    />
     <style>
-        @page {
-            size: A4;
-            margin: 16mm;
-        }
+      @page {
+        size: A4;
+        margin: 16mm;
+      }
 
+      body {
+        margin: 0;
+        background: #f4f7fa;
+        font-family: "Inter", "Segoe UI", Roboto, Arial, sans-serif;
+        color: #0f1724;
+      }
+
+      /* Floating tools (Export PDF) */
+      .tools {
+        position: fixed;
+        top: 14px;
+        right: 16px;
+        z-index: 1000;
+        display: flex;
+        gap: 8px;
+      }
+
+      .btn {
+        background: #0b71d0;
+        color: #fff;
+        border: none;
+        padding: 10px 14px;
+        border-radius: 8px;
+        font-weight: 700;
+        font-size: 12px;
+        cursor: pointer;
+        box-shadow: 0 2px 8px rgba(11, 113, 208, 0.25);
+        transition:
+          transform 0.15s ease,
+          box-shadow 0.15s ease,
+          background 0.15s ease;
+      }
+
+      .btn:hover {
+        transform: translateY(-1px);
+        background: #0a66bd;
+        box-shadow: 0 4px 12px rgba(11, 113, 208, 0.3);
+      }
+
+      .sheet {
+        width: 210mm;
+        min-height: 297mm;
+        margin: 10mm auto;
+        background: #fff;
+        padding: 18mm;
+        border-radius: 8px;
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+        box-sizing: border-box;
+      }
+
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 14px;
+      }
+
+      .photo {
+        width: 85px;
+        height: 85px;
+        border-radius: 10px;
+        object-fit: cover;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      }
+
+      .info h1 {
+        margin: 0;
+        font-size: 22px;
+        font-weight: 800;
+      }
+
+      .info p.role {
+        margin: 4px 0 0 0;
+        font-size: 13px;
+        color: #475569;
+      }
+
+      .contact {
+        text-align: right;
+        font-size: 11.5px;
+        line-height: 1.35;
+      }
+
+      .contact a {
+        color: #0b71d0;
+        text-decoration: none;
+      }
+
+      hr {
+        border: none;
+        height: 1px;
+        background: #e5e9f0;
+        margin: 12px 0 18px 0;
+      }
+
+      .main {
+        display: grid;
+        grid-template-columns: 1fr 270px;
+        gap: 22px;
+      }
+
+      section {
+        margin-bottom: 12px;
+      }
+
+      h2 {
+        font-size: 12.5px;
+        margin: 0 0 8px 0;
+        color: #0b1220;
+        text-transform: uppercase;
+        letter-spacing: 0.6px;
+      }
+
+      p,
+      li {
+        font-size: 12px;
+        line-height: 1.45;
+      }
+
+      ul {
+        margin: 6px 0 0 18px;
+        padding: 0;
+      }
+
+      .job {
+        margin-bottom: 10px;
+        break-inside: avoid;
+      }
+
+      .job .title {
+        font-weight: 700;
+        font-size: 12.3px;
+      }
+
+      .job .meta {
+        font-size: 11px;
+        color: #475569;
+      }
+
+      .job .period {
+        float: right;
+        color: #6b7280;
+        font-weight: 600;
+        font-size: 11px;
+      }
+
+      .skills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 7px;
+      }
+
+      .skill {
+        background: #eef4ff;
+        color: #0b61b8;
+        padding: 6px 9px;
+        border-radius: 8px;
+        font-size: 11px;
+        font-weight: 600;
+      }
+
+      .sidebar {
+        border-left: 1px solid #e5e9f0;
+        padding-left: 12px;
+        break-inside: avoid;
+      }
+
+      .card {
+        margin-bottom: 12px;
+        break-inside: avoid;
+      }
+
+      .card p,
+      .card li {
+        font-size: 11.5px;
+        color: #374151;
+      }
+
+      footer {
+        text-align: center;
+        font-size: 10.5px;
+        color: #6b7280;
+        margin-top: 14px;
+      }
+
+      .page-break {
+        page-break-after: always;
+      }
+
+      @media print {
         body {
-            margin: 0;
-            background: #f4f7fa;
-            font-family: "Inter", "Segoe UI", Roboto, Arial, sans-serif;
-            color: #0f1724;
-        }
-
-        /* Floating tools (Export PDF) */
-        .tools {
-            position: fixed;
-            top: 14px;
-            right: 16px;
-            z-index: 1000;
-            display: flex;
-            gap: 8px;
-        }
-
-        .btn {
-            background: #0b71d0;
-            color: #fff;
-            border: none;
-            padding: 10px 14px;
-            border-radius: 8px;
-            font-weight: 700;
-            font-size: 12px;
-            cursor: pointer;
-            box-shadow: 0 2px 8px rgba(11, 113, 208, .25);
-            transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
-        }
-
-        .btn:hover {
-            transform: translateY(-1px);
-            background: #0a66bd;
-            box-shadow: 0 4px 12px rgba(11, 113, 208, .3);
+          background: #fff;
         }
 
         .sheet {
-            width: 210mm;
-            min-height: 297mm;
-            margin: 10mm auto;
-            background: #fff;
-            padding: 18mm;
-            border-radius: 8px;
-            box-shadow: 0 4px 14px rgba(0, 0, 0, .06);
-            box-sizing: border-box;
+          box-shadow: none;
+          margin: 0;
+          border-radius: 0;
+          padding: 14mm;
         }
 
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 14px;
+        .tools {
+          display: none !important;
         }
 
-        .photo {
-            width: 85px;
-            height: 85px;
-            border-radius: 10px;
-            object-fit: cover;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, .15);
+        * {
+          -webkit-print-color-adjust: exact !important;
+          print-color-adjust: exact !important;
         }
 
-        .info h1 {
-            margin: 0;
-            font-size: 22px;
-            font-weight: 800;
-        }
-
-        .info p.role {
-            margin: 4px 0 0 0;
-            font-size: 13px;
-            color: #475569;
-        }
-
-        .contact {
-            text-align: right;
-            font-size: 11.5px;
-            line-height: 1.35;
-        }
-
-        .contact a {
-            color: #0b71d0;
-            text-decoration: none;
-        }
-
-        hr {
-            border: none;
-            height: 1px;
-            background: #e5e9f0;
-            margin: 12px 0 18px 0;
-        }
-
-        .main {
-            display: grid;
-            grid-template-columns: 1fr 270px;
-            gap: 22px;
-        }
-
-        section {
-            margin-bottom: 12px;
+        header,
+        section,
+        .card,
+        .job {
+          break-inside: avoid;
+          page-break-inside: avoid;
         }
 
         h2 {
-            font-size: 12.5px;
-            margin: 0 0 8px 0;
-            color: #0b1220;
-            text-transform: uppercase;
-            letter-spacing: .6px;
+          page-break-after: avoid;
         }
-
-        p,
-        li {
-            font-size: 12px;
-            line-height: 1.45;
-        }
-
-        ul {
-            margin: 6px 0 0 18px;
-            padding: 0;
-        }
-
-        .job {
-            margin-bottom: 10px;
-            break-inside: avoid;
-        }
-
-        .job .title {
-            font-weight: 700;
-            font-size: 12.3px;
-        }
-
-        .job .meta {
-            font-size: 11px;
-            color: #475569;
-        }
-
-        .job .period {
-            float: right;
-            color: #6b7280;
-            font-weight: 600;
-            font-size: 11px;
-        }
-
-        .skills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 7px;
-        }
-
-        .skill {
-            background: #eef4ff;
-            color: #0b61b8;
-            padding: 6px 9px;
-            border-radius: 8px;
-            font-size: 11px;
-            font-weight: 600;
-        }
-
-        .sidebar {
-            border-left: 1px solid #e5e9f0;
-            padding-left: 12px;
-            break-inside: avoid;
-        }
-
-        .card {
-            margin-bottom: 12px;
-            break-inside: avoid;
-        }
-
-        .card p,
-        .card li {
-            font-size: 11.5px;
-            color: #374151;
-        }
-
-        footer {
-            text-align: center;
-            font-size: 10.5px;
-            color: #6b7280;
-            margin-top: 14px;
-        }
-
-        .page-break {
-            page-break-after: always;
-        }
-
-        @media print {
-            body {
-                background: #fff
-            }
-
-            .sheet {
-                box-shadow: none;
-                margin: 0;
-                border-radius: 0;
-                padding: 14mm
-            }
-
-            .tools {
-                display: none !important;
-            }
-
-            * {
-                -webkit-print-color-adjust: exact !important;
-                print-color-adjust: exact !important;
-            }
-
-            header,
-            section,
-            .card,
-            .job {
-                break-inside: avoid;
-                page-break-inside: avoid;
-            }
-
-            h2 {
-                page-break-after: avoid;
-            }
-        }
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="tools" aria-hidden="true">
-        <button class="btn" onclick="window.print()">Export PDF</button>
+      <button class="btn" onclick="window.print()">Export PDF</button>
     </div>
 
     <!-- PAGE 1 -->
     <div class="sheet">
-        <header>
-            <div style="display:flex;align-items:center;gap:14px;">
-                <img src="suleman.jpeg" alt="Syed Suleman Shah" class="photo" />
-                <div class="info">
-                    <h1>Syed Suleman Shah</h1>
-                    <p class="role">Unity 3D Developer • Backend C# Programmer • Instructor</p>
-                </div>
+      <header>
+        <div style="display: flex; align-items: center; gap: 14px">
+          <img src="suleman.jpeg" alt="Syed Suleman Shah" class="photo" />
+          <div class="info">
+            <h1>Syed Suleman Shah</h1>
+            <p class="role">
+              Unity Developer · Multiplayer Systems · VR Simulations ·
+              Instructor
+            </p>
+          </div>
+        </div>
+        <div class="contact">
+          Hyderabad, Sindh, Pakistan |
+          <a href="mailto:Sayedsulaiman607@gmail.com"
+            >Sayedsulaiman607@gmail.com</a
+          >
+          | +92 309 302 3289 |
+          <a href="https://www.witshells.com" target="_blank">witshells.com</a>
+        </div>
+      </header>
+      <hr />
+
+      <div class="main">
+        <!-- LEFT -->
+        <div>
+          <section>
+            <h2>Professional Summary</h2>
+            <p>
+              6+ years building games and real-time systems in Unity —
+              multiplayer, VR, mobile, WebGL, tactical simulations. Works as an
+              independent contractor and instructor, and is currently building
+              Witshells Studio from the ground up: a competitive gaming platform
+              that brings esports to every player, not just the elite. Writes
+              clean C# across the full stack, from game mechanics to backend
+              services. When not building, teaching — because the clearest sign
+              you truly understand something is being able to explain it simply.
+            </p>
+          </section>
+
+          <section>
+            <h2>Core Skills</h2>
+            <div class="skills">
+              <div class="skill">Unity 3D / C#</div>
+              <div class="skill">Multiplayer & Netcode</div>
+              <div class="skill">NavMesh / AI Pathfinding</div>
+              <div class="skill">Backend Microservices</div>
+              <div class="skill">Docker / AWS</div>
+              <div class="skill">VR / WebGL</div>
+              <div class="skill">Teaching & Mentoring</div>
+              <div class="skill">Geospatial Systems</div>
+              <div class="skill">Performance Optimization</div>
             </div>
-            <div class="contact">
-                Karachi, Pakistan | <a href="mailto:Sayedsulaiman607@gmail.com">Sayedsulaiman607@gmail.com</a><br />
-                +92 309 302 3289 | <a href="https://www.witshells.com" target="_blank">witshells.com</a><br />
-                Fiverr: <a href="https://www.fiverr.com/s/8z91LK4" target="_blank" rel="noopener">Profile</a>
-            </div>
-        </header>
-        <hr />
+          </section>
 
-        <div class="main">
-            <!-- LEFT -->
-            <div>
-                <section>
-                    <h2>Professional Summary</h2>
-                    <p>
-                        Versatile Unity 3D developer and instructor with 6+ years’ experience building tactical
-                        simulations,
-                        multiplayer systems, and educational games. Combines deep C# backend expertise (ASP.NET Core,
-                        Docker)
-                        with strong Unity skills — AI navigation, VR/WebGL optimization, and geospatial visualization.
-                        Proven record delivering freelance and contract projects, mentoring students, and creating
-                        reusable tools
-                        that accelerate production pipelines.
-                    </p>
-                </section>
+          <section>
+            <h2>Professional Experience</h2>
 
-                <section>
-                    <h2>Core Skills</h2>
-                    <div class="skills">
-                        <div class="skill">Unity 3D / C#</div>
-                        <div class="skill">Multiplayer & Netcode</div>
-                        <div class="skill">NavMesh / AI Pathfinding</div>
-                        <div class="skill">Backend Microservices</div>
-                        <div class="skill">Docker / AWS</div>
-                        <div class="skill">VR / WebGL</div>
-                        <div class="skill">Teaching & Mentoring</div>
-                        <div class="skill">Geospatial Systems</div>
-                        <div class="skill">Performance Optimization</div>
-                    </div>
-                </section>
-
-                <section>
-                    <h2>Professional Experience</h2>
-
-                    <div class="job">
-                        <div class="title">Lead Unity 3D Developer — Phoenix Technologies Ltd</div>
-                        <div class="period">Jun 2025 – Present</div>
-                        <div class="meta">Karachi | Full-time</div>
-                        <ul>
-                            <li>Architected real-time simulation platform integrating multiplayer and AI formation
-                                systems.</li>
-                            <li>Built geospatial map module supporting lat/lon, UTM and MGRS conversions for tactical
-                                visualization.</li>
-                            <li>Optimized agent update loops and texture management to reduce memory usage by 30%
-                                (approx.).</li>
-                        </ul>
-                    </div>
-
-                    <div class="job">
-                        <div class="title">Contract Unity Developer — WheelToWin</div>
-                        <div class="period">Feb 2025 – May 2025</div>
-                        <div class="meta">Remote</div>
-                        <ul>
-                            <li>Developed multiplayer racing prototype with secure client/server matchmaking and
-                                reconciliation.</li>
-                            <li>Implemented Dockerized backend services and AWS deployment for leaderboard tracking.
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="job">
-                        <div class="title">Unity Developer & Backend Programmer (Freelance)</div>
-                        <div class="period">Mar 2020 – Present</div>
-                        <div class="meta">Upwork / Fiverr Clients — Remote</div>
-                        <ul>
-                            <li>Delivered 80+ projects covering mobile, WebGL and VR; specialized in AI navigation and
-                                gameplay systems.</li>
-                            <li>Created microservices with ASP.NET Core + PostgreSQL for match records and analytics.
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="job">
-                        <div class="title">Unity Instructor — NexSkill</div>
-                        <div class="period">Sep 2024 – Jun 2025</div>
-                        <div class="meta">Karachi | Part-time</div>
-                        <ul>
-                            <li>Designed curriculum for Unity C# fundamentals, multiplayer basics and performance
-                                profiling.</li>
-                            <li>Guided students through capstone projects and playable WebGL deployments.</li>
-                        </ul>
-                    </div>
-                </section>
+            <div class="job">
+              <div class="title">
+                Co-Founder &amp; Lead Developer — Witshells Studio
+              </div>
+              <div class="period">2024 – Present</div>
+              <div class="meta">Remote | Self-Venture</div>
+              <ul>
+                <li>
+                  The goal: make esports a space any competitive gamer can enter
+                  — not just the pros.
+                </li>
+                <li>
+                  Building the entire platform solo — the game, the match
+                  system, and the reward infrastructure that ties it all
+                  together.
+                </li>
+                <li>
+                  Full ownership from concept to deployment; every design
+                  decision made independently.
+                </li>
+                <li>
+                  Launched WitCoin on Google Play in December 2025 — the
+                  platform's first live product, currently active with real
+                  users.
+                </li>
+              </ul>
             </div>
 
-            <!-- SIDEBAR -->
-            <aside class="sidebar">
-                <div class="card">
-                    <h2>Technical Tools</h2>
-                    <ul>
-                        <li>Photon Fusion • Mirror • Custom WebSockets</li>
-                        <li>NavMesh • DOTween • Newtonsoft Json</li>
-                        <li>PostgreSQL • Firebase • AWS • Docker</li>
-                        <li>Figma • Blender • VS Code • Git</li>
-                    </ul>
-                </div>
+            <div class="job">
+              <div class="title">
+                Mobile Game Developer &amp; Trainer (Contract) — Game Storms
+                Studio Pvt
+              </div>
+              <div class="period">Jan 2026 – Present</div>
+              <div class="meta">Part-time Contract | Remote</div>
+              <ul>
+                <li>
+                  Actively contributing to mobile game builds and running
+                  developer training sessions for the internal team.
+                </li>
+              </ul>
+            </div>
 
-                <div class="card">
-                    <h2>Languages</h2>
-                    <ul>
-                        <li>English — Fluent</li>
-                        <li>Urdu — Native</li>
-                        <li>Sindhi — Native</li>
-                    </ul>
-                </div>
+            <div class="job">
+              <div class="title">
+                Unity Developer &amp; Backend Programmer (Freelance)
+              </div>
+              <div class="period">Mar 2020 – Present</div>
+              <div class="meta">Upwork / Fiverr Clients — Remote</div>
+              <ul>
+                <li>
+                  Started freelancing in 2020 during the second year of
+                  university — first project delivered on Fiverr, verified with
+                  client feedback, and continuously active since.
+                </li>
+                <li>
+                  80+ projects shipped across mobile, WebGL and VR; consistently
+                  rehired and referred. Active throughout — paused during a
+                  full-time engagement at Phoenix Technologies (Jul–Oct 2025),
+                  resumed immediately after.
+                </li>
+                <li>
+                  Most recent: Climate VR (Dec 2025 – May 2026) — a 6-scene
+                  Oculus multiplayer experience with a teacher dashboard that
+                  auto-discovers headsets on the same Wi-Fi and syncs every
+                  session in real-time using Netcode.
+                </li>
+                <li>
+                  Handles backend when the project needs it: match data,
+                  leaderboards, and admin panels via ASP.NET Core + PostgreSQL.
+                </li>
+              </ul>
+            </div>
 
-                <div class="card">
-                    <h2>Education</h2>
-                    <ul>
-                        <li><strong>B.S. Software Engineering</strong> — University of Sindh (2019-2023)</li>
-                        <li>Intermediate (Engineering) — Mehran Degree College (2016-2018)</li>
-                    </ul>
-                </div>
+            <div class="job">
+              <div class="title">
+                Unity 3D Game Dev Instructor (Contract) — NexSkill
+              </div>
+              <div class="period">Sep 2024 – Jun 2025</div>
+              <div class="meta">Contract | On-site</div>
+              <ul>
+                <li>Joined as an independent contract instructor</li>
+                <li>
+                  Taught Unity fundamentals, C# basics, and editor workflow —
+                  meeting each student where they were, not where a syllabus
+                  assumed they'd be.
+                </li>
+                <li>
+                  Students came in different: some took naturally to code,
+                  others found their edge in level design and game art. Each
+                  left with a solid Unity foundation to build on in their own
+                  direction.
+                </li>
+              </ul>
+            </div>
 
-                <div class="card">
-                    <h2>Awards & Recognition</h2>
-                    <ul>
-                        <li>First Place FYP — “COP (Chor or Police)”, University of Sindh (2023)</li>
-                        <li>80+ successful client deliveries via Upwork &amp; Fiverr</li>
-                    </ul>
-                </div>
-
-                <div class="card">
-                    <h2>Teaching Highlights</h2>
-                    <p>Mentored students on game mechanics, C# patterns and debugging. Delivered corporate Unity
-                        training sessions with hands-on projects and progressive evaluation.</p>
-                </div>
-            </aside>
+            <div class="job">
+              <div class="title">
+                Lead Unity 3D Developer — Phoenix Technologies Ltd
+              </div>
+              <div class="period">Jul 2025 – Oct 2025</div>
+              <div class="meta">Karachi | Full-time</div>
+              <ul>
+                <li>
+                  Sole Unity developer, full-time embedded — owned the
+                  architecture and end-to-end delivery of a defence-sector
+                  planning tool built for Mac and Android.
+                </li>
+                <li>Full project breakdown on page 2.</li>
+              </ul>
+            </div>
+          </section>
         </div>
 
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+          <div class="card">
+            <h2>Technical Tools</h2>
+            <ul>
+              <li>Unity Netcode • Photon Fusion • Mirror</li>
+              <li>NavMesh • DOTween • Newtonsoft Json</li>
+              <li>ASP.NET Core • PostgreSQL • Firebase</li>
+              <li>Docker • AWS • Git • VS Code</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h2>Languages</h2>
+            <ul>
+              <li>English — Fluent</li>
+              <li>Urdu — Native</li>
+              <li>Sindhi — Native</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h2>Education</h2>
+            <ul>
+              <li>
+                <strong>B.S. Software Engineering</strong> — University of Sindh
+                (2019-2023)
+              </li>
+              <li>
+                Intermediate (Engineering) — Mehran Degree College (2016-2018)
+              </li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h2>Awards & Recognition</h2>
+            <ul>
+              <li>
+                First Place FYP — “COP (Chor or Police)”, University of Sindh
+                (2023)
+              </li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h2>Teaching Highlights</h2>
+            <p>
+              Mentored students on game mechanics, C# patterns and debugging.
+              Delivered corporate Unity training sessions with hands-on projects
+              and progressive evaluation.
+            </p>
+          </div>
+
+          <div class="card">
+            <h2>Open Source</h2>
+            <ul>
+              <li>
+                <a
+                  href="https://github.com/Sulaiman281/Reusable-Unity-Scripts-Packages"
+                  target="_blank"
+                  rel="noopener"
+                  >Reusable Unity Scripts &amp; Packages</a
+                >
+                — production-ready Unity utilities, publicly maintained on
+                GitHub.
+              </li>
+              <li>
+                <a
+                  href="https://github.com/Sulaiman281/VR-reusable-assets"
+                  target="_blank"
+                  rel="noopener"
+                  >VR Reusable Assets</a
+                >
+                — ready-to-use VR components and interactions for Unity
+                projects.
+              </li>
+            </ul>
+          </div>
+        </aside>
+      </div>
     </div>
 
     <div class="page-break"></div>
 
     <!-- PAGE 2 -->
     <div class="sheet">
-        <section>
-            <h2>Key Project — Unity-Based Tactical Navigation &amp; Waypoint Management System</h2>
-            <p>
-                A real-time tactical navigation and formation control system demonstrating expertise in Unity, AI
-                navigation, multiplayer design and geospatial computation.
-            </p>
-            <ul>
-                <li><strong>Advanced Map Tile System:</strong> Dynamic tile loading with multi-zoom support and lat/lon,
-                    UTM, MGRS coordinate conversion.</li>
-                <li><strong>Intelligent Vehicle Agents:</strong> Multi-agent coordination, formation types (Rectangle,
-                    Line, Triangle, Column) and collision avoidance using NavMesh.</li>
-                <li><strong>Waypoint &amp; Node Management:</strong> Interactive UI for waypoint placement, sequenced
-                    navigation and formation visualization via gizmos.</li>
-                <li><strong>Technical Architecture:</strong> Client-server design ready for multiplayer, JSON config
-                    system, cross-platform file I/O (Android/Mac), and persistent user settings.</li>
-                <li><strong>Performance Optimization:</strong> Memory-efficient tile loading, distance-based update
-                    cycles, and optimized coordinate math.</li>
-                <li><strong>Tech Stack:</strong> Unity 3D, C#, NavMesh, DOTween, Newtonsoft.Json, Custom Coordinate
-                    Systems, Unity Events.</li>
-                <li><strong>Platforms:</strong> Android &amp; Mac with responsive UI and native file integration.</li>
-            </ul>
-        </section>
+      <section>
+        <h2>Key Project — Military Planning Sandbox (Phoenix Technologies)</h2>
+        <p>
+          A fully offline, encrypted military planning tool built in Unity for
+          Mac and Android. Commanders download any map region by lat/lon
+          bounding box, then plan and simulate operations entirely without
+          internet — in the field, on a real sand table if needed.
+        </p>
+        <ul>
+          <li>
+            <strong>Offline map system:</strong> Users define a lat/lon area to
+            cache map tiles locally. The app reads lat/lon, UTM and MGRS
+            natively — switch coordinate systems without losing position
+            context.
+          </li>
+          <li>
+            <strong>Full planning layer:</strong> Place troops, vehicles, and
+            standard military symbols on the map. Assign waypoints with
+            conditional movement rules; group entire units — tanks, infantry —
+            for synchronized navigation using NavMesh.
+          </li>
+          <li>
+            <strong>Freehand drawing &amp; measurement:</strong> Annotate
+            directly on the map with freehand drawing tools, MGRS grid overlay,
+            and precise distance measurement between any two points.
+          </li>
+          <li>
+            <strong>Multiplayer with command roles:</strong> Mac acts as the
+            session host. A dedicated Director role can spectate every
+            participant individually, switch views freely, and take
+            command-level control over the full session.
+          </li>
+          <li>
+            <strong>Xbox Kinect sand-table integration:</strong> Kinect sensor
+            scans the physical sand surface during calibration — reads height
+            data in real-time and auto-renders terrain features (rivers,
+            mountains, elevation) on the digital map.
+          </li>
+          <li>
+            <strong>Security:</strong> End-to-end encrypted sessions throughout.
+          </li>
+          <li>
+            <strong>Stack:</strong> Unity 3D · C# · NavMesh · Xbox Kinect SDK ·
+            Netcode · Newtonsoft.Json · Custom MGRS / UTM / lat/lon coordinate
+            math
+          </li>
+        </ul>
+      </section>
 
-        <section>
-            <h2>Other Notable Projects</h2>
-            <ul>
-                <li><strong>Battlefog Chess:</strong> Multiplayer chess with AI and blockchain-ready backend (APIs via
-                    ASP.NET Core + PostgreSQL).</li>
-                <li><strong>Witshells Platform:</strong> Educational mini-games and quiz systems integrated with
-                    token-based reward mechanics (WebGL).</li>
-                <li><strong>COP (Final Year Project):</strong> Multiplayer urban simulation game demonstrating
-                    police/thief mechanics with custom netcode.</li>
-            </ul>
-        </section>
+      <section>
+        <h2>Recent Projects</h2>
+        <ul>
+          <li>
+            <strong>Climate VR (Dec 2025 – May 2026):</strong> Immersive
+            educational VR with 6 scenes (space intro, Maldives, Arctic, Amazon,
+            Australia, and final assessment lab) teaching climate change
+            awareness. Features a teacher dashboard that broadcasts a server via
+            UDP; Oculus headsets auto-detect the server on the same Wi-Fi and
+            connect seamlessly. All participants share a synchronized experience
+            through Netcode for GameObjects.
+          </li>
+          <li>
+            <strong>Witshells Studio (2024 – Present):</strong> Personal vision
+            to bring esports to everyday gamers — not just professionals.
+            Building a competitive platform where any player can join sponsored
+            matches and earn rewards through performance; sole developer and
+            co-founder.
+          </li>
+          <li>
+            <strong>Marduga (Game Jam):</strong> 1v1 competitive car deathmatch
+            arena with pickups, built solo in 10 days. Published at
+            <a
+              href="https://wavedash.com/games/marduga"
+              target="_blank"
+              rel="noopener"
+              >wavedash.com/marduga</a
+            >.
+          </li>
+        </ul>
+      </section>
 
-        <section>
-            <h2>Technical Achievements</h2>
-            <ul>
-                <li>Implemented cross-platform coordinate conversion and geospatial visualization in Unity.</li>
-                <li>Developed event-driven architecture using Unity Events and Observer pattern for modular systems.
-                </li>
-                <li>Optimized runtime memory through smart disposal patterns and texture reuse.</li>
-                <li>Created Dockerized C# microservices for game record tracking and admin dashboards.</li>
-            </ul>
-        </section>
-
-        <section>
-            <h2>Career Focus</h2>
-            <p>
-                Seeking contract or part-time roles in Unity development and technical instruction that leverage my
-                expertise in real-time simulation, AI pathfinding, and multiplayer architecture.
-                Passionate about teaching and building scalable systems that bridge game technology and practical
-                education.
-            </p>
-        </section>
-        <footer>Syed Suleman Shah — Unity 3D Developer &amp; Instructor</footer>
+      <section>
+        <h2>Career Focus</h2>
+        <p>
+          Open to contract work in Unity development and game dev instruction —
+          clear scope, direct communication, real output. Building Witshells
+          Studio on the side keeps the creative drive running. Remote-first;
+          available on-site when the project calls for it. Not looking for
+          permanent employment.
+        </p>
+      </section>
+      <footer>Syed Suleman Shah — Unity 3D Developer &amp; Instructor</footer>
     </div>
-</body>
-
+  </body>
 </html>
