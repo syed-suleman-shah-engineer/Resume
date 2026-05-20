@@ -11,7 +11,7 @@
     <style>
       @page {
         size: A4;
-        margin: 16mm;
+        margin: 0;
       }
 
       body {
@@ -213,7 +213,25 @@
           box-shadow: none;
           margin: 0;
           border-radius: 0;
-          padding: 14mm;
+          padding: 8mm;
+        }
+
+        .main {
+          display: block;
+          overflow: hidden;
+        }
+
+        .main > div:first-child {
+          float: left;
+          width: 122mm;
+        }
+
+        .sidebar {
+          float: right;
+          width: 53mm;
+          break-inside: auto;
+          border-left: 1px solid #e5e9f0;
+          padding-left: 4mm;
         }
 
         .tools {
@@ -225,16 +243,44 @@
           print-color-adjust: exact !important;
         }
 
-        header,
-        section,
-        .card,
-        .job {
+        .job,
+        .card {
           break-inside: avoid;
           page-break-inside: avoid;
         }
 
         h2 {
+          margin: 0 0 4px 0;
           page-break-after: avoid;
+        }
+
+        p,
+        li {
+          line-height: 1.35;
+        }
+
+        section {
+          margin-bottom: 5px;
+        }
+
+        .job {
+          margin-bottom: 4px;
+        }
+
+        hr {
+          margin: 6px 0 10px 0;
+        }
+
+        ul {
+          margin-top: 3px;
+        }
+
+        .page-break {
+          display: none;
+        }
+
+        .page-break + div {
+          page-break-before: always;
         }
       }
     </style>
@@ -385,7 +431,6 @@
               <div class="period">Sep 2024 – Jun 2025</div>
               <div class="meta">Contract | On-site</div>
               <ul>
-                <li>Joined as an independent contract instructor</li>
                 <li>
                   Taught Unity fundamentals, C# basics, and editor workflow —
                   meeting each student where they were, not where a syllabus
@@ -412,7 +457,6 @@
                   architecture and end-to-end delivery of a defence-sector
                   planning tool built for Mac and Android.
                 </li>
-                <li>Full project breakdown on page 2.</li>
               </ul>
             </div>
           </section>
@@ -579,7 +623,7 @@
               href="https://wavedash.com/games/marduga"
               target="_blank"
               rel="noopener"
-              >wavedash.com/marduga</a
+              >wavedash.com/games/marduga</a
             >.
           </li>
         </ul>
