@@ -1,0 +1,580 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Naima Ghulam Muhammad — MERN Stack, Blockchain & Mobile Developer</title>
+    <meta name="description"
+        content="Naima Ghulam Muhammad — Software Engineer specializing in MERN stack, blockchain development, and React Native mobile apps, with smart contracts (Solidity, ERC721/ERC20/ERC1155) and Web3 dApp integration." />
+    <style>
+        @page {
+            size: A4;
+            margin: 0;
+        }
+
+        body {
+            margin: 0;
+            background: #f4f7fa;
+            font-family: "Inter", "Segoe UI", Roboto, Arial, sans-serif;
+            color: #0f1724;
+        }
+
+        /* Floating tools (Export PDF) */
+        .tools {
+            position: fixed;
+            top: 14px;
+            right: 16px;
+            z-index: 1000;
+            display: flex;
+            gap: 8px;
+        }
+
+        .btn {
+            background: #b8246e;
+            color: #fff;
+            border: none;
+            padding: 10px 14px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 12px;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(184, 36, 110, 0.25);
+            transition:
+                transform 0.15s ease,
+                box-shadow 0.15s ease,
+                background 0.15s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-1px);
+            background: #9c1d5e;
+            box-shadow: 0 4px 12px rgba(184, 36, 110, 0.3);
+        }
+
+        .sheet {
+            width: 210mm;
+            min-height: 297mm;
+            margin: 10mm auto;
+            background: #fff;
+            padding: 18mm;
+            border-radius: 8px;
+            border: 1.5px solid #b8246e;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+            box-sizing: border-box;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 14px;
+            background: #fdf0f6;
+            margin: calc(-18mm - 1.5px) calc(-18mm - 1.5px) 0 calc(-18mm - 1.5px);
+            padding: 14mm 18mm 12px 18mm;
+            border-radius: 6.5px 6.5px 0 0;
+            border-bottom: 1px solid #f3c6dd;
+        }
+
+        .photo {
+            width: 115px;
+            height: 115px;
+            border-radius: 10px;
+            object-fit: cover;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        .info h1 {
+            margin: 0;
+            font-size: 22px;
+            font-weight: 800;
+        }
+
+        .info p.role {
+            margin: 4px 0 0 0;
+            font-size: 13px;
+            color: #475569;
+        }
+
+        .contact {
+            text-align: right;
+            font-size: 11.5px;
+            line-height: 1.35;
+        }
+
+        .header-divider {
+            width: 1px;
+            align-self: stretch;
+            background: #e8a9c5;
+            margin: 2px 4px;
+        }
+
+        .contact a {
+            color: #b8246e;
+            text-decoration: none;
+        }
+
+        hr {
+            border: none;
+            height: 1px;
+            background: #e5e9f0;
+            margin: 12px 0 18px 0;
+        }
+
+        .main {
+            display: grid;
+            grid-template-columns: 1fr 270px;
+            gap: 22px;
+        }
+
+        section {
+            margin-bottom: 12px;
+        }
+
+        h2 {
+            font-size: 12.5px;
+            margin: 0 0 8px 0;
+            color: #0b1220;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+        }
+
+        p,
+        li {
+            font-size: 12px;
+            line-height: 1.45;
+        }
+
+        ul {
+            margin: 6px 0 0 18px;
+            padding: 0;
+        }
+
+        .job {
+            margin-bottom: 10px;
+            break-inside: avoid;
+        }
+
+        .job .title {
+            font-weight: 700;
+            font-size: 12.3px;
+        }
+
+        .job .meta {
+            font-size: 11px;
+            color: #475569;
+        }
+
+        .job .period {
+            float: right;
+            color: #6b7280;
+            font-weight: 600;
+            font-size: 11px;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 7px;
+        }
+
+        .skill {
+            background: #fbe4ee;
+            color: #9c1d5e;
+            padding: 6px 9px;
+            border-radius: 8px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        .sidebar {
+            border-left: 1px solid #e5e9f0;
+            padding-left: 12px;
+            break-inside: avoid;
+        }
+
+        .card {
+            margin-bottom: 12px;
+            break-inside: avoid;
+        }
+
+        .card p,
+        .card li {
+            font-size: 11.5px;
+            color: #374151;
+        }
+
+        footer {
+            text-align: center;
+            font-size: 10.5px;
+            color: #6b7280;
+            margin-top: 14px;
+        }
+
+        .page-break {
+            page-break-after: always;
+        }
+
+        @media print {
+            body {
+                background: #fff;
+            }
+
+            .sheet {
+                box-shadow: none;
+                margin: 0;
+                border-radius: 0;
+                padding: 8mm;
+            }
+
+            header {
+                margin: calc(-8mm - 1.5px) calc(-8mm - 1.5px) 0 calc(-8mm - 1.5px);
+                padding: 8mm 8mm 10px 8mm;
+                border-radius: 0;
+            }
+
+            .main {
+                display: block;
+                overflow: hidden;
+            }
+
+            .main>div:first-child {
+                float: left;
+                width: 122mm;
+            }
+
+            .sidebar {
+                float: right;
+                width: 53mm;
+                break-inside: auto;
+                border-left: 1px solid #e5e9f0;
+                padding-left: 4mm;
+            }
+
+            .tools {
+                display: none !important;
+            }
+
+            * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            .job,
+            .card {
+                break-inside: avoid;
+                page-break-inside: avoid;
+            }
+
+            h2 {
+                margin: 0 0 4px 0;
+                page-break-after: avoid;
+            }
+
+            p,
+            li {
+                line-height: 1.35;
+            }
+
+            section {
+                margin-bottom: 5px;
+            }
+
+            .job {
+                margin-bottom: 4px;
+            }
+
+            hr {
+                margin: 6px 0 10px 0;
+            }
+
+            ul {
+                margin-top: 3px;
+            }
+
+            .page-break {
+                display: none;
+            }
+
+            .page-break+div {
+                page-break-before: always;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="tools" aria-hidden="true">
+        <button class="btn" onclick="window.print()">Export PDF</button>
+    </div>
+
+    <!-- PAGE 1 -->
+    <div class="sheet">
+        <header>
+            <div style="display: flex; align-items: center; gap: 14px">
+                <img src="naima.png" alt="Naima Ghulam Muhammad" class="photo" />
+                <div class="info">
+                    <h1>Naima Ghulam Muhammad</h1>
+                    <p class="role">
+                        MERN Stack & Blockchain Developer · React Native ·
+                        Web3 / Solidity · Smart Contracts
+                    </p>
+                </div>
+                <div class="header-divider"></div>
+                <div class="contact">
+                    Pakistan
+                    <br />
+                    <a href="mailto:naimaghm92@gmail.com">naimaghm92@gmail.com</a>
+                    <br />
+                    +92 307 8599542
+                </div>
+            </div>
+        </header>
+        <hr />
+
+        <div class="main">
+            <!-- LEFT -->
+            <div>
+                <section>
+                    <h2>Professional Summary</h2>
+                    <p>
+                        Dynamic Software Engineer with over 4 years of hands-on
+                        experience in full-stack and blockchain development,
+                        specializing in JavaScript technologies, backend systems, and
+                        smart contract programming using Solidity. Skilled in both
+                        frontend and backend architecture, with a strong understanding
+                        of decentralized applications (dApps) and blockchain
+                        integration. Passionate about sharing knowledge, mentoring
+                        students, and translating real-world development experience
+                        into engaging, practical learning. A proactive team player with
+                        excellent communication skills, committed to innovation and
+                        continuous learning in academic and professional settings.
+                    </p>
+                </section>
+
+                <section>
+                    <h2>Core Skills</h2>
+                    <div class="skills">
+                        <div class="skill">MERN Stack</div>
+                        <div class="skill">React.js / React Native</div>
+                        <div class="skill">Vue.js</div>
+                        <div class="skill">Solidity</div>
+                        <div class="skill">ERC721 / ERC20 / ERC1155</div>
+                        <div class="skill">Web3 / Ethers / Wallet Connect</div>
+                        <div class="skill">Nest.js / Microservices</div>
+                        <div class="skill">Postgres / TypeOrm / Dynamo</div>
+                        <div class="skill">REST APIs / Websocket</div>
+                        <div class="skill">Mentorship</div>
+                    </div>
+                </section>
+
+                <section>
+                    <h2>Professional Experience</h2>
+
+                    <div class="job">
+                        <div class="title">
+                            Frontend Engineer — Mingo
+                        </div>
+                        <div class="period">Dec 2024 – current</div>
+                        <ul>
+                            <li>
+                                Managed the wallet app frontend, redesigned the app,
+                                reducing UX problems 90%.
+                            </li>
+                            <li>
+                                Added the wallet connection to other dApps, improving app
+                                usage by 75%.
+                            </li>
+                            <li>
+                                Collaborated with backend and previous devs, enhancing
+                                project success rates by 10%.
+                            </li>
+                            <li>
+                                Ongoing: extending the product to mobile using React
+                                Native, building on the same wallet and dApp connection
+                                work from the web app.
+                            </li>
+                        </ul>
+                        <p style="margin: 6px 0 0 0; font-size: 11px; color: #6b7280">
+                            Vuejs · Reactjs · React Native · Hedera · Wallet connect ·
+                            Git · Railway.com · Pnpm · Vite
+                        </p>
+                    </div>
+
+                    <div class="job">
+                        <div class="title">
+                            Software Engineer — ACM Finance
+                        </div>
+                        <div class="period">July 2024 – July 2025</div>
+                        <ul>
+                            <li>
+                                Worked on Centralized Exchange Product, onboarded 30+ new
+                                market pairs time effectively which boosted 80% company
+                                assets.
+                            </li>
+                            <li>
+                                Implemented cross futures in futures trading, enhancing
+                                overall market trade by 75%.
+                            </li>
+                            <li>
+                                Lead junior devs in successfully delivering complex tasks
+                                on time and provided support to multiple users in their
+                                withdrawals, deposits, and trading related tasks, improved
+                                efficiency by 25%.
+                            </li>
+                        </ul>
+                        <p style="margin: 6px 0 0 0; font-size: 11px; color: #6b7280">
+                            Nestjs · Git · Microservices · Postgres · TypeOrm · Dynamo ·
+                            Aws Cloudwatch · Redis · Rabbitmq
+                        </p>
+                    </div>
+
+                    <div class="job">
+                        <div class="title">
+                            Software Engineer — Digital Auxilius
+                        </div>
+                        <div class="period">April 2023 – July 2023</div>
+                        <ul>
+                            <li>
+                                Coordinated project tasks, ensuring adherence to
+                                engineering standards and regulations.
+                            </li>
+                            <li>
+                                Conducted comprehensive project analyses, identifying and
+                                rectifying discrepancies in engineering designs.
+                            </li>
+                        </ul>
+                        <p style="margin: 6px 0 0 0; font-size: 11px; color: #6b7280">
+                            Reactjs · Git · Nextjs · Material UI · Axios · Rest APIs
+                        </p>
+                    </div>
+
+                    <div class="job">
+                        <div class="title">
+                            Mern Stack + Blockchain Developer — Graphic Design Hub
+                        </div>
+                        <div class="period">May 2021 – Mar 2022</div>
+                        <ul>
+                            <li>
+                                Built frontend using React for an NFT marketplace, overall
+                                used a MERN Stack to manage this project solely.
+                            </li>
+                            <li>
+                                Involved with ERC721, ERC20 and ERC1155 smart contracts
+                                development and deployments.
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+            </div>
+
+            <!-- SIDEBAR -->
+            <aside class="sidebar">
+                <div class="card">
+                    <h2>Technical Skills</h2>
+                    <ul>
+                        <li>Typescript • Java • C++ • C# • Solidity • Php</li>
+                        <li>OOP • NVM • Git • AWS • Web3 • Ethers</li>
+                        <li>Smart Contracts • WSL • VSCode • DataGrip</li>
+                        <li>Swagger • Websocket • REST</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h2>Interpersonal Skills</h2>
+                    <ul>
+                        <li>Confident and effective communication</li>
+                        <li>Mentorship</li>
+                        <li>Project management</li>
+                        <li>Documentation</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h2>Education</h2>
+                    <ul>
+                        <li>
+                            <strong>B.S. Software Engineering</strong> — University of
+                            Sindh, Jamshoro — 3.65 CGPA (Jan 2019 – Jan 2023)
+                        </li>
+                        <li>
+                            Diploma in Computer & Business Management — Sindh Board of
+                            Technical Education, FAITH College, Hyderabad (Jan 2019 –
+                            Jul 2021)
+                        </li>
+                    </ul>
+                </div>
+            </aside>
+        </div>
+    </div>
+
+    <div class="page-break"></div>
+
+    <!-- PAGE 2 -->
+    <div class="sheet">
+        <section>
+            <h2>Key Project — NFT Marketplace (Graphic Design Hub)</h2>
+            <p>
+                A full MERN stack NFT marketplace built and managed solely,
+                covering frontend development with React alongside hands-on smart
+                contract development and deployment across multiple Ethereum
+                token standards.
+            </p>
+            <ul>
+                <li>
+                    <strong>Frontend:</strong> Built the entire marketplace frontend
+                    using React, managing the project end to end as a solo
+                    developer across the full MERN stack.
+                </li>
+                <li>
+                    <strong>Smart contracts:</strong> Hands-on involvement with
+                    ERC721, ERC20, and ERC1155 smart contracts, covering both
+                    development and deployment.
+                </li>
+                <li>
+                    <strong>Stack:</strong> MongoDB · Express.js · React · Node.js ·
+                    Solidity · ERC721 · ERC20 · ERC1155
+                </li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Additional Highlights</h2>
+            <ul>
+                <li>
+                    <strong>Wallet App Redesign (Mingo, Dec 2024 – current):</strong>
+                    Led a frontend redesign of a Web3 wallet app, reducing UX
+                    problems by 90% and adding wallet connection support to other
+                    dApps, improving app usage by 75%.
+                </li>
+                <li>
+                    <strong>Centralized Exchange Product (ACM Finance):</strong>
+                    Onboarded 30+ new market pairs and implemented cross futures in
+                    futures trading, contributing directly to company asset growth
+                    and overall market trade volume.
+                </li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Career Focus</h2>
+            <p>
+                Focused on MERN stack, blockchain, and mobile development —
+                building full-stack and React Native applications, alongside
+                Solidity smart contract development and Web3/dApp integration.
+                A strong communicator and proactive team player who has led
+                junior developers through complex delivery work, owned a major
+                frontend redesign end to end, and worked closely across backend
+                and product teams to keep projects on track. Comfortable taking
+                ownership of scope and translating between technical and
+                non-technical stakeholders.
+            </p>
+        </section>
+        <footer>
+            Naima Ghulam Muhammad — MERN Stack, Blockchain & Mobile Developer
+        </footer>
+    </div>
+</body>
+
+</html>
